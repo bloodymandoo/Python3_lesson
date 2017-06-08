@@ -1,0 +1,194 @@
+# 标准数据类型
+
+# Number(数字)
+# String(字符串)
+# List(列表)
+# Tuple(元组)
+# Sets(集合)
+# Dictionary(字典)
+
+# Number(数字)
+# Python3 支持 int、float、bool、complex(复数)。
+# 在 Python3 里，只有一种整数类型 int，表示为长整形，没有 Python2 中的 Long。
+# 像大多数语言一样，数值类型的赋值和计算都是很直观的。
+# 内置的type()函数可以用来查询变量所指的对象类型。
+
+a,b,c,d=20,5.5,True,4+3j
+print(type(a),type(b),type(c),type(d))
+# <class 'int'> <class 'float'> <class 'bool'> <class 'complex'>
+
+# 此外还可以用 isinstance 来判断
+
+a=111
+print(isinstance(a,int))
+#True
+
+#isinstance 和 type 的区别在于：
+class A:
+    pass
+class B(A):
+    pass
+print(isinstance(A(),A))  #return True
+print(type(A())==A)       #return True
+print(isinstance(B(),A))  #return True
+print(type(B())==A)       #return False
+
+# 区别就是：
+# type()不会认为子类是一种父类类型。
+# isinstace()会认为子类是一种父类类型。
+
+# 当你指定一个值时，Number对象就会被创建：
+var1=1
+var2=10
+# 可以通过使用del语句删除一些对象引用。
+# del语法：
+# del var1[,var2[,var3[...,varN]]]
+#例如：
+#del var
+#del var_a,var_b
+del var1
+# print(var1)   #return NameError: name 'var1' is not defined
+
+#计算
+#除法
+print(2/4)      #return  0.5
+print(2//4)     #return  0
+print(2%4)      #return  2
+#乘方
+print(2**5)     #return  32
+
+#Python还支持复数，复数由实数部分和虚数部分构成，可以用a+bj或者complex(a,b)表示，复数的实部a和虚部b都是浮点型。
+
+
+
+
+#Sting(字符串)
+# Python字符串和其它语言的字符串用法基本一样，除了以下几点：
+#
+# Python使用反斜杠（\）转义特殊字符，如果不想发生转义，可在字符串前加一个字母 r，表示原始字符串
+print('wor\nld')  #return wor  ld
+print(r'wor\nld') #return wor\nld
+
+#注意，Python没有单独的字符类型，一个字符就是长度为1的字符串。
+#Python字符串不能被改变，例：word[0]='k'会导致报错
+#1、反斜杠可以用来转义，使用r可以让反斜杠不发生转义。
+#2、字符串可以用+运算符连接在一起，用*运算符重复。
+#3、Python中的字符串有两种索引方式，从左往右以0开始，从右往左以-1开始。
+#4、Python中的字符串不能改变。
+
+
+
+
+#List(列表)
+# List(列表)是Python中使用最频繁的数据类型。
+# 实例：
+
+list = ['abcd','957','7.88','world',3+4j];
+tinylist = [132,'hello'];
+
+print(list)                 #return 完整列表
+print(list[0])              #return 列表第一个元素
+print(list[1:3])            #return 第二个到第三个元素
+print(list[2:])             #return 第二个元素之后的所有元素
+print(list[:2])             #return 第三个元素之前的所有元素
+print(tinylist*2)           #return 两次列表
+print(list + tinylist)      #return 连接列表
+
+
+
+
+#Tuple(元组)
+#元组(tuple)与列表类似，不同之处在于元组的元素不能修改。元组写在小括号‘()’里，元素之间用逗号隔开
+
+#元组的基本操作和列表一样
+#虽然元组的元素不可改变，但它可以包含可变的对象，比如list列表。
+#构造包含0个和1个元素的元组比较特俗，所以有一些额外的语法规则：
+
+tup1 = ()       #空元组
+tup2 = (20,)    #一个元素，需要在元素后添加逗号
+
+
+
+
+
+#Set(集合)
+#集合(Set)是一个无序不重复元素的序列。
+#基本功能是进行成员关系测试和删除重复元素。
+#可以使用大括号‘{}’或者set()函数创建集合，注意：创建一个空集合必须使用set() 而不是{}，因为{}是用来创建一个空字典。
+#实例：
+
+student = {'Tom','Jim','Mary','Tom','Jack','Rose'}
+print(student)                  #return 集合，重复元素被自动去掉
+
+#成员测试
+if('Tom' in student):
+    print('Tom 在集合中')
+else:
+    print('Tom不在集合中')
+
+#set可以进行集合运算
+a = set('abdsaasdasa')
+b = set('uhhuhjha')
+
+print(a)            #return a          {'a', 's', 'd', 'b'}
+print(a-b)          #return a和b的差集 {'b', 'd', 's'}
+print(a|b)          #return a和b的并集 {'h', 'd', 'b', 'u', 'a', 's', 'j'}
+print(a&b)          #return a和b的交集 {'a'}
+print(a^b)          #return a和b中不同时存在的元素 {'b', 'h', 'd', 's', 'u', 'j'}
+
+
+
+
+
+#Dictionary(字典)
+#字典(dictionary)是Python中另一个非常有用的内置数据类型。字典是无序的对象集合。
+#字典用‘{}’标识，它是一个无序的键(key):值(value)对集合。
+#键(key)必须使用不可变类型。
+#在同一个字典中，键(key)必须是唯一的。
+
+#实例：
+
+dict={}
+dict[1]='1'
+dict[2]='2'
+
+tinydict = {'3':'3'}
+
+print(dict)             #return {1: '1', 2: '2'}
+print(tinydict)         #return {'3': '3'}
+print(dict.keys())      #return dict_keys([1, 2])
+print(dict.values())    #return dict_values(['1', '2'])
+
+#构造函数dict()可以直接从键值对序列中构建字典：
+del dict    #删除前面定义，避免调用构造函数出错
+print(dict([('one',1),('two',2),('three',3)]))   #return {'one': 1, 'two': 2, 'three': 3}
+
+print({x:x**2 for x in (2,4,6)})                   #return {2: 4, 4: 16, 6: 36}
+
+print(dict(one=1,two=2,three=3))                    #return {'one': 1, 'two': 2, 'three': 3}  key不可带引号
+
+
+
+
+
+
+#Python数据类型转换
+
+#函数                       #描述
+
+#int(x[,base])              将x转换为一个整数
+#float(x)                   将x转换为一个浮点数
+#complex(real[,imag])       创建一个复数
+#str(x)                     将对象x转换为字符串
+#repr(x)                    将对象x转换为表达式字符串
+#eval(str)                  用来计算在字符串中有效的Python表达式，并返回一个对象
+#tuple(s)                   将序列s转换为一个元组
+#list(s)                    将序列s转换为一个列表
+#set(s)                     转换为可变集合
+#dict(d)                    创建一个字典。d必须是一个序列(key,value)元组
+#frozenset(s)               转换为不可变集合
+#chr(x)                     将一个整数转换为一个字符
+#unichr(x)                  将一个整数转换为Unicode字符
+#ord(x)                     将一个字符转换为它的整数值
+#hex(x)                     将一个整数转换为一个十六进制字符串
+#oct(x)                     将一个整数转换为一个八进制字符串
